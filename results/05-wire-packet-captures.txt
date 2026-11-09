@@ -1,0 +1,141 @@
+=== ANYsec link pe1 1/1/c1/1 <-> pe2 1/1/c1/1 (Epipe 100 ping) ===
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on e1-1-c1-1, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+21:07:38.214332 aa:c1:ab:f4:4a:6c > aa:c1:ab:0f:cb:64, ethertype MPLS unicast (0x8847), length 156: MPLS (label 60001, tc 0, ttl 255) (label 50002, tc 0, [S], ttl 255)
+	0x0000:  0ea6 10ff 0c35 21ff 88e5 2c00 0000 000e
+	0x0010:  0000 0000 c352 0001 521a 0eb5 1438 61e9
+	0x0020:  3d80 6aa1 db2b aec7 15aa 0e24 d128 9bc9
+	0x0030:  8d9a 4ef5 c28b 26d1 47b3 d815 6969 d654
+	0x0040:  f9dd 71ac c077 9848 2f6a 5072 d7b4 faae
+	0x0050:  4c37 d40c cbe1 9cce 61ff 441d ed1b 90c9
+	0x0060:  9a3e a817 3179 7bbb c665 e044 0b3f 93c1
+	0x0070:  28e3 6335 51a2 48cf 1a72 2d2d 83d3 73b1
+	0x0080:  3159 5a38 4c19 1a26 1fdd 6dd0 26b0
+21:07:38.414704 aa:c1:ab:f4:4a:6c > aa:c1:ab:0f:cb:64, ethertype MPLS unicast (0x8847), length 156: MPLS (label 60001, tc 0, ttl 255) (label 50002, tc 0, [S], ttl 255)
+	0x0000:  0ea6 10ff 0c35 21ff 88e5 2c00 0000 000f
+	0x0010:  0000 0000 c352 0001 cb11 b0c8 e169 3580
+	0x0020:  ec53 bffe 2dae 6d3c 101d 2da3 70fb a04e
+	0x0030:  b75f 4bad 9775 4cdb 384f 75c3 e053 7494
+	0x0040:  ba59 005f 3eae bd01 b7e5 7c31 6040 b7e8
+	0x0050:  ae49 25d6 c7df 00df 0cd1 d186 d3e9 e3ee
+	0x0060:  094c 0aab cd31 adc2 c286 c3b6 2b59 ddb0
+	0x0070:  473e 9e4d 3061 fbb0 1dbb e077 3c49 61f6
+	0x0080:  ca94 7166 a882 dbb5 25d8 9dc8 edd8
+21:07:38.614410 aa:c1:ab:f4:4a:6c > aa:c1:ab:0f:cb:64, ethertype MPLS unicast (0x8847), length 156: MPLS (label 60001, tc 0, ttl 255) (label 50002, tc 0, [S], ttl 255)
+	0x0000:  0ea6 10ff 0c35 21ff 88e5 2c00 0000 0010
+	0x0010:  0000 0000 c352 0001 8464 bd74 bf19 934d
+	0x0020:  4ce1 c299 4066 e749 e03f d8b1 d864 5b3a
+	0x0030:  bd9f 4f3d a86e 387a 3825 754d d65b a8b2
+	0x0040:  cbef ac51 144b 2ec3 56db 43c6 ba51 d4b4
+	0x0050:  664a 8755 8c95 f806 4e31 41cc f287 c452
+	0x0060:  3f0c 411b 5827 5d85 d2d3 8f7a b01e 3ecf
+	0x0070:  df00 57bf c758 9440 daff dfbe a29a cbc9
+	0x0080:  3b85 c551 a747 b8bb deb0 440f 4805
+
+3 packets captured
+3 packets received by filter
+0 packets dropped by kernel
+
+=== ANYsec link pe1 1/1/c1/1 <-> pe2 1/1/c1/1 (VPRN 200 ping) ===
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on e1-1-c1-1, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+21:07:41.381878 aa:c1:ab:f4:4a:6c > aa:c1:ab:0f:cb:64, ethertype MPLS unicast (0x8847), length 142: MPLS (label 60001, tc 0, ttl 255) (label 50002, tc 0, [S], ttl 255)
+	0x0000:  0ea6 10ff 0c35 21ff 88e5 2c00 0000 0011
+	0x0010:  0000 0000 c352 0001 7957 a6b6 4e67 73a1
+	0x0020:  274d ede1 fd44 91b3 da2d 5c50 d42f bc27
+	0x0030:  9e53 202e a8ac ca82 3ac1 bed8 f977 e63b
+	0x0040:  05e9 4f5a 959b 3adb c36d 63ea 1ac5 6b50
+	0x0050:  4df6 154b 803f 02fa 6ce8 4e51 ac19 0b2a
+	0x0060:  18ef 8be4 311d 4400 81c3 5f3e 693b 84f0
+	0x0070:  7a0a 4d4b d623 2d73 7434 a9c4 17b3 fd46
+21:07:41.581499 aa:c1:ab:f4:4a:6c > aa:c1:ab:0f:cb:64, ethertype MPLS unicast (0x8847), length 142: MPLS (label 60001, tc 0, ttl 255) (label 50002, tc 0, [S], ttl 255)
+	0x0000:  0ea6 10ff 0c35 21ff 88e5 2c00 0000 0012
+	0x0010:  0000 0000 c352 0001 70c6 e085 9775 5e42
+	0x0020:  0ed5 f672 0bde 6606 656d 0dc2 97f8 78cf
+	0x0030:  68c3 2830 c463 ab9a 8cbf 5e5c 2d96 4401
+	0x0040:  42e9 5e9a d2fc 77d2 cce5 cf48 3c58 4054
+	0x0050:  ac3c 7d9d f523 3fd5 dd0d a9dd 284a b65b
+	0x0060:  21fe d631 cab1 9493 957d 0d73 d54b 95bf
+	0x0070:  44a8 696f a673 a173 3f65 8e60 c9d5 4d46
+21:07:41.782897 aa:c1:ab:f4:4a:6c > aa:c1:ab:0f:cb:64, ethertype MPLS unicast (0x8847), length 142: MPLS (label 60001, tc 0, ttl 255) (label 50002, tc 0, [S], ttl 255)
+	0x0000:  0ea6 10ff 0c35 21ff 88e5 2c00 0000 0013
+	0x0010:  0000 0000 c352 0001 4fb5 dd46 6c50 09bd
+	0x0020:  60a7 0a51 6ae9 1b59 cee3 3519 37a6 cbda
+	0x0030:  153d d478 97f4 ca9c f75d ef68 9abc ba36
+	0x0040:  d759 d736 23a9 ec3e 2191 fedd 9b23 e699
+	0x0050:  1d26 9795 5d41 5e14 bfa8 a0e9 fbf2 43f3
+	0x0060:  321c 4e5e 639a f110 b856 e766 f946 78ea
+	0x0070:  3b40 f4be 3c8c c574 9f0e a9e2 2554 c2ea
+
+3 packets captured
+3 packets received by filter
+0 packets dropped by kernel
+
+=== MACsec link pe2 1/1/c2/1 <-> pe3 1/1/c1/1 (Epipe 100 ping) ===
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on e1-1-c2-1, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+21:07:44.534929 aa:c1:ab:e2:c1:8a > aa:c1:ab:76:00:76, ethertype 802.1AE MACsec (0x88e5), length 134: an 0, pn 32, flags ECI, sci aac1ab0b51ac0001, 
+	0x0000:  8088 b6b0 e502 168e fea9 eaf9 5b97 f7e7
+	0x0010:  d92c 2cfa f738 0eb2 eb46 c31f a86d e6cc
+	0x0020:  b3ca 6bee 642e c59f 4a59 1dd7 0dfa 7e03
+	0x0030:  8236 328d f5fa d815 14ca 96bc cd3a 7633
+	0x0040:  11bd 2c76 68a7 f039 b583 02f9 4f5e b018
+	0x0050:  71b4 a5d9 c335 917f b418 2a2d f4b1 0948
+	0x0060:  ad0e e887 8e97 4546 eca0
+21:07:44.734993 aa:c1:ab:e2:c1:8a > aa:c1:ab:76:00:76, ethertype 802.1AE MACsec (0x88e5), length 134: an 0, pn 33, flags ECI, sci aac1ab0b51ac0001, 
+	0x0000:  b239 f376 94d1 4c8b 8563 14b2 7eb5 0d15
+	0x0010:  65d1 82f0 dcd8 8104 fdb5 e424 0cbb 1c3c
+	0x0020:  794a c8d1 a116 6819 36fa c9d9 6918 1a04
+	0x0030:  4b7d dfee 97f0 f598 4216 4da2 74c7 36e6
+	0x0040:  2b69 13a9 0cb4 680c d30d fe8a 06da 1934
+	0x0050:  76f2 211c 5222 6dda 29b0 7108 ba55 b272
+	0x0060:  ec01 e3f9 7b8e aaa9 b73d
+21:07:44.936296 aa:c1:ab:e2:c1:8a > aa:c1:ab:76:00:76, ethertype 802.1AE MACsec (0x88e5), length 134: an 0, pn 34, flags ECI, sci aac1ab0b51ac0001, 
+	0x0000:  a294 2269 118d 06c6 625c 6d04 50fe f9bf
+	0x0010:  ee2e 0255 5cca a03c e020 a029 5a54 c928
+	0x0020:  d125 6c47 eb52 c5a6 2afc e202 1375 3d6c
+	0x0030:  7cd4 7551 8b36 7576 3063 d94c 3bb7 732d
+	0x0040:  66a2 89e3 6526 c000 962a a7de 52c0 8c47
+	0x0050:  cbd9 691b 1ca0 480f 5c38 be2b b4d0 021c
+	0x0060:  78f6 20f1 624c 3d3d c8cd
+
+3 packets captured
+3 packets received by filter
+0 packets dropped by kernel
+
+=== MACsec link pe2 1/1/c2/1 <-> pe3 1/1/c1/1 (VPRN 200 ping) ===
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on e1-1-c2-1, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+21:07:47.683700 aa:c1:ab:0b:51:ac > aa:c1:ab:c6:27:87, ethertype 802.1AE MACsec (0x88e5), length 134: an 0, pn 35, flags ECI, sci aac1ab0b51ac0001, 
+	0x0000:  2b36 5808 c0e0 a802 9627 9f04 7a9e 496b
+	0x0010:  24d1 85c8 5827 cbd9 5a0c b225 bed2 8617
+	0x0020:  cb20 7303 23c0 5a89 351b 0a93 9fcb 99d1
+	0x0030:  f27a 05ee dbd3 4324 304f 83bc 5ae9 aad5
+	0x0040:  963a 5699 e032 7542 336d 6d42 b096 50c2
+	0x0050:  725f e909 8a23 5750 0f13 eaff 549a 6622
+	0x0060:  b245 332a e608 30ab 4609
+21:07:47.884003 aa:c1:ab:0b:51:ac > aa:c1:ab:c6:27:87, ethertype 802.1AE MACsec (0x88e5), length 134: an 0, pn 36, flags ECI, sci aac1ab0b51ac0001, 
+	0x0000:  1fee c9c2 88dd 9e86 35db ca39 e9fb 1d85
+	0x0010:  a8fe be2b 5afb 4d44 c8ae 50d0 9646 f87b
+	0x0020:  792b 2cce 1c48 823e 8c3c 5a23 ff7e 2962
+	0x0030:  2dcd 1a4b d104 4178 ab51 daaf de16 b452
+	0x0040:  51ef 315b 5d38 9dd9 2575 d143 1bf5 3649
+	0x0050:  18e1 976f 4b11 df88 e02c 3618 470f 0761
+	0x0060:  066b d924 f106 872a 19b8
+21:07:48.084704 aa:c1:ab:0b:51:ac > aa:c1:ab:c6:27:87, ethertype 802.1AE MACsec (0x88e5), length 134: an 0, pn 37, flags ECI, sci aac1ab0b51ac0001, 
+	0x0000:  c950 5139 2faf f0f2 9334 19c2 48bc 951d
+	0x0010:  e945 4eef dd28 46ba b991 b820 015a 2c7c
+	0x0020:  5776 1834 edce 610d 4fb6 8a0e 6304 940d
+	0x0030:  607f 96cb 3084 04f9 e7bc 92d9 6d31 3987
+	0x0040:  d336 936f 1cd9 d12d d0b0 26a5 8a0d 2903
+	0x0050:  38b7 2bff ed45 05bd f44a 1974 621d 3d68
+	0x0060:  724e df47 a6c8 e02a f94a
+21:07:49.758153 aa:c1:ab:e2:c1:8a > aa:c1:ab:76:00:76, ethertype 802.1AE MACsec (0x88e5), length 92: an 0, pn 38, flags ECI, sci aac1ab0b51ac0001, 
+	0x0000:  9e8a 0146 c2d3 0600 1935 9c8f e14e 9d06
+	0x0010:  2f03 5ead 5e60 f022 c8b4 7c59 5049 e570
+	0x0020:  99f8 a19d a31e dc3e 6c68 319d 63ba 0756
+	0x0030:  5de5 2b2a 6b13 b4f8 b66c 0b28 4fba e2da
+4 packets captured
+4 packets received by filter
+0 packets dropped by kernel
+

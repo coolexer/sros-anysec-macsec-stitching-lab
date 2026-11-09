@@ -1,0 +1,7 @@
+license*.txt
+*.license
+clab-*/
+.clab*
+*.bak
+*.annotations.json
+*.clab.drawio

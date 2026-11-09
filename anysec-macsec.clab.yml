@@ -1,0 +1,95 @@
+name: anysec-macsec-26-10
+
+# pe1, pe2 : Nokia 7750 SR-1 (FP5, m5e10-100g-qsfp28) - ANYsec over SR-ISIS between them
+# pe3      : Nokia 7750 SR-1 (FP5) - MACsec to pe2
+# All nodes are SR-SIM 26.10.R1, MD-CLI.
+
+mgmt:
+  network: anysec-macsec-mgmt
+  ipv4-subnet: 172.31.250.0/24
+
+topology:
+  kinds:
+    nokia_srsim:
+      image: registry.srlinux.dev/pub/nokia_srsim:26.10.R1
+      license: license26.txt
+    linux:
+      image: ghcr.io/srl-labs/network-multitool:latest
+
+  nodes:
+    pe1:
+      kind: nokia_srsim
+      type: sr-1
+      mgmt-ipv4: 172.31.250.11
+      startup-config: configs/pe1.partial.cfg
+      components:
+        - mda:
+            - slot: 1
+              type: m5e10-100g-qsfp28
+      labels:
+        graph-icon: pe
+
+    pe2:
+      kind: nokia_srsim
+      type: sr-1
+      mgmt-ipv4: 172.31.250.12
+      startup-config: configs/pe2.partial.cfg
+      components:
+        - mda:
+            - slot: 1
+              type: m5e10-100g-qsfp28
+      labels:
+        graph-icon: pe
+
+    pe3:
+      kind: nokia_srsim
+      type: sr-1
+      mgmt-ipv4: 172.31.250.13
+      startup-config: configs/pe3.partial.cfg
+      components:
+        - mda:
+            - slot: 1
+              type: m5e10-100g-qsfp28
+      labels:
+        graph-icon: pe
+
+    ce1:
+      kind: linux
+      mgmt-ipv4: 172.31.250.21
+      labels:
+        graph-icon: client
+      exec:
+        - ip link set eth1 up
+        - ip link add link eth1 name eth1.100 type vlan id 100
+        - ip link set eth1.100 up
+        - ip addr add 10.100.0.1/24 dev eth1.100
+        - ip link add link eth1 name eth1.200 type vlan id 200
+        - ip link set eth1.200 up
+        - ip addr add 192.168.10.2/24 dev eth1.200
+        - ip route replace 192.168.20.0/24 via 192.168.10.1
+        - ip route replace 172.16.200.0/30 via 192.168.10.1
+
+    ce2:
+      kind: linux
+      mgmt-ipv4: 172.31.250.22
+      labels:
+        graph-icon: client
+      exec:
+        - ip link set eth1 up
+        - ip link add link eth1 name eth1.100 type vlan id 100
+        - ip link set eth1.100 up
+        - ip addr add 10.100.0.2/24 dev eth1.100
+        - ip link add link eth1 name eth1.200 type vlan id 200
+        - ip link set eth1.200 up
+        - ip addr add 192.168.20.2/24 dev eth1.200
+        - ip route replace 192.168.10.0/24 via 192.168.20.1
+        - ip route replace 172.16.200.0/30 via 192.168.20.1
+
+  links:
+    # ANYsec over SR-ISIS MPLS (network ports)
+    - endpoints: ["pe1:1/1/c1/1", "pe2:1/1/c1/1"]
+    # MACsec (access dot1q ports)
+    - endpoints: ["pe2:1/1/c2/1", "pe3:1/1/c1/1"]
+    # Customer access (VLAN 100 = Epipe 100, VLAN 200 = VPRN 200)
+    - endpoints: ["ce1:eth1", "pe1:1/1/c2/1"]
+    - endpoints: ["ce2:eth1", "pe3:1/1/c3/1"]

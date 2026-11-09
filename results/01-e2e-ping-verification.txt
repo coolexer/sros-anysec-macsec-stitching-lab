@@ -1,0 +1,23 @@
+=== Epipe 100 End-to-End Ping (ce1 10.100.0.1 -> ce2 10.100.0.2) ===
+PING 10.100.0.2 (10.100.0.2) 56(84) bytes of data.
+64 bytes from 10.100.0.2: icmp_seq=1 ttl=64 time=6.81 ms
+64 bytes from 10.100.0.2: icmp_seq=2 ttl=64 time=1.73 ms
+64 bytes from 10.100.0.2: icmp_seq=3 ttl=64 time=3.28 ms
+64 bytes from 10.100.0.2: icmp_seq=4 ttl=64 time=1.95 ms
+64 bytes from 10.100.0.2: icmp_seq=5 ttl=64 time=4.10 ms
+
+--- 10.100.0.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 1.727/3.572/6.805/1.836 ms
+
+=== VPRN 200 End-to-End Ping (ce1 192.168.10.2 -> ce2 192.168.20.2) ===
+PING 192.168.20.2 (192.168.20.2) 56(84) bytes of data.
+64 bytes from 192.168.20.2: icmp_seq=1 ttl=61 time=15.0 ms
+64 bytes from 192.168.20.2: icmp_seq=2 ttl=61 time=2.59 ms
+64 bytes from 192.168.20.2: icmp_seq=3 ttl=61 time=3.57 ms
+64 bytes from 192.168.20.2: icmp_seq=4 ttl=61 time=3.91 ms
+64 bytes from 192.168.20.2: icmp_seq=5 ttl=61 time=4.29 ms
+
+--- 192.168.20.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 2.593/5.879/15.039/4.614 ms

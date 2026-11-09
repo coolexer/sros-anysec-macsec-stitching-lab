@@ -1,0 +1,225 @@
+==================== pe1 ANYsec & MKA Status ====================
+[/]
+A:admin@pe1# environment more false
+
+[/]
+A:admin@pe1# show anysec status
+
+===============================================================================
+ANYsec Status
+===============================================================================
+Operational Status           : in-service
+MKA over IP session UDP Port : 10000
+Reserved Label Block         : Anysec
+SRv6 SID Resolution Supported: locator-type-routes
+===============================================================================
+
+[/]
+A:admin@pe1# show anysec tunnel-encryption encryption-group "EG-TUNNEL" peer 10.20.1.2 detail
+
+===============================================================================
+Encryption Group: EG-TUNNEL
+===============================================================================
+Group ID                   : 1
+Group Admin State          : Up
+Group Type                 : mpls-tunnel
+CA Name                    : CA-ANYSEC
+Local Encryption Label     : 50001
+Allow Entropy Label        : No
+Security Termination Policy: STP-PE1
+Policy Admin State         : Up
+Policy Protocol            : sr-isis
+Policy IGP Instance ID     : 0
+Policy FlexAlgo ID         : 0
+Local Address              : 10.20.1.1
+Rx Must Be Encrypted       : Yes
+Terminating Label          : 60001
+
+-------------------------------------------------------------------------------
+Peer 10.20.1.2 configuration
+-------------------------------------------------------------------------------
+Peer Admin State        : Up
+Peer Protocol           : sr-isis
+Peer IGP Instance ID    : 0
+Peer FlexAlgo ID        : 0
+Peer Tunnel ID          : 524290
+Peer Encryption Label   : 50002
+Last Inconsistent Rx SCI: 0000000000000000
+Peer Oper State         : Up
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+SC stats for peer 10.20.1.2
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+txSCSecyStats
+-------------------------------------------------------------------------------
+Tx SCI                       : 00000000c3510001
+Encrypted Packets            : 13
+Encrypted Octets             : 1870
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+rxSCSecyStats
+-------------------------------------------------------------------------------
+Rx SCI                       : 00000000c3520001
+Delay Packets                : 0
+Not Valid Packets            : 0
+Unchecked Packets            : 0
+OK Packets                   : 13
+Decrypted Octets             : 1898
+-------------------------------------------------------------------------------
+===============================================================================
+
+[/]
+A:admin@pe1# show macsec connectivity-association "CA-ANYSEC" detail
+
+===============================================================================
+Connectivity Association "CA-ANYSEC"
+===============================================================================
+Admin State        : Up
+Description        : (Not Specified)
+Cipher Suite       : gcm-aes-xpn-256
+Encryption Offset  : 0
+Encryption Group   : EG-TUNNEL
+Key Server Prio    : 16
+Hello Interval     : 2
+MKA Version        : 2
+PSK Type           : static
+
+-------------------------------------------------------------------------------
+Static Cak
+-------------------------------------------------------------------------------
+Active Pre-Shared-Key Index  : 1
+Active Pre-Shared-Key CKN    : 1122
+Encryption Type              : aes-256-cmac
+Primary Keychain             : (Not Specified)
+
+-------------------------------------------------------------------------------
+PSK History
+-------------------------------------------------------------------------------
+Peer 10.20.1.2
+-------------------------------------------------------------------------------
+Entry Index              : 1
+    Start Time           : 2026/11/09 20:06:25
+    PSK Source           : static-active-psk
+    CA Key Name (CKN)    : 1122
+    AES Key Wrap of CAK  : (N/A)
+===============================================================================
+
+[/]
+A:admin@pe1# logout
+
+==================== pe2 ANYsec & MKA Status ====================
+[/]
+A:admin@pe2# environment more false
+
+[/]
+A:admin@pe2# show anysec status
+
+===============================================================================
+ANYsec Status
+===============================================================================
+Operational Status           : in-service
+MKA over IP session UDP Port : 10000
+Reserved Label Block         : Anysec
+SRv6 SID Resolution Supported: locator-type-routes
+===============================================================================
+
+[/]
+A:admin@pe2# show anysec tunnel-encryption encryption-group "EG-TUNNEL" peer 10.20.1.1 detail
+
+===============================================================================
+Encryption Group: EG-TUNNEL
+===============================================================================
+Group ID                   : 1
+Group Admin State          : Up
+Group Type                 : mpls-tunnel
+CA Name                    : CA-ANYSEC
+Local Encryption Label     : 50002
+Allow Entropy Label        : No
+Security Termination Policy: STP-PE2
+Policy Admin State         : Up
+Policy Protocol            : sr-isis
+Policy IGP Instance ID     : 0
+Policy FlexAlgo ID         : 0
+Local Address              : 10.20.1.2
+Rx Must Be Encrypted       : Yes
+Terminating Label          : 60002
+
+-------------------------------------------------------------------------------
+Peer 10.20.1.1 configuration
+-------------------------------------------------------------------------------
+Peer Admin State        : Up
+Peer Protocol           : sr-isis
+Peer IGP Instance ID    : 0
+Peer FlexAlgo ID        : 0
+Peer Tunnel ID          : 524290
+Peer Encryption Label   : 50001
+Last Inconsistent Rx SCI: 0000000000000000
+Peer Oper State         : Up
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+SC stats for peer 10.20.1.1
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+txSCSecyStats
+-------------------------------------------------------------------------------
+Tx SCI                       : 00000000c3520001
+Encrypted Packets            : 13
+Encrypted Octets             : 1898
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+rxSCSecyStats
+-------------------------------------------------------------------------------
+Rx SCI                       : 00000000c3510001
+Delay Packets                : 0
+Not Valid Packets            : 0
+Unchecked Packets            : 0
+OK Packets                   : 13
+Decrypted Octets             : 1870
+-------------------------------------------------------------------------------
+===============================================================================
+
+[/]
+A:admin@pe2# show macsec connectivity-association "CA-ANYSEC" detail
+
+===============================================================================
+Connectivity Association "CA-ANYSEC"
+===============================================================================
+Admin State        : Up
+Description        : (Not Specified)
+Cipher Suite       : gcm-aes-xpn-256
+Encryption Offset  : 0
+Encryption Group   : EG-TUNNEL
+Key Server Prio    : 16
+Hello Interval     : 2
+MKA Version        : 2
+PSK Type           : static
+
+-------------------------------------------------------------------------------
+Static Cak
+-------------------------------------------------------------------------------
+Active Pre-Shared-Key Index  : 1
+Active Pre-Shared-Key CKN    : 1122
+Encryption Type              : aes-256-cmac
+Primary Keychain             : (Not Specified)
+
+-------------------------------------------------------------------------------
+PSK History
+-------------------------------------------------------------------------------
+Peer 10.20.1.1
+-------------------------------------------------------------------------------
+Entry Index              : 1
+    Start Time           : 2026/11/09 20:06:24
+    PSK Source           : static-active-psk
+    CA Key Name (CKN)    : 1122
+    AES Key Wrap of CAK  : (N/A)
+===============================================================================
+
+[/]
+A:admin@pe2# logout
